@@ -22,7 +22,9 @@ const CLIENT_INFO = "clientInfo";
       window.sessionStorage.removeItem(USER_KEY);
       window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
       window.localStorage.setItem(CLIENT_ID, JSON.stringify(user.id));
-      window.localStorage.setItem(CLIENT_INFO, JSON.stringify(user));
+    }
+    public saveClientInfo(client: any): void {
+      window.localStorage.setItem(CLIENT_INFO, JSON.stringify(client));
     }
     public getUser = () => JSON.parse(<string>sessionStorage.getItem(USER_KEY));
   }
