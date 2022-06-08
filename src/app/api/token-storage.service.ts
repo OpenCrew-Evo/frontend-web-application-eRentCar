@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
-const CLIENT_ID = 'clientId'
+const CLIENT_ID = 'clientId';
+const CLIENT_INFO = "clientInfo";
 
 @Injectable({ providedIn: 'root' })
   export class TokenStorageService {
@@ -21,6 +22,7 @@ const CLIENT_ID = 'clientId'
       window.sessionStorage.removeItem(USER_KEY);
       window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
       window.localStorage.setItem(CLIENT_ID, JSON.stringify(user.id));
+      window.localStorage.setItem(CLIENT_INFO, JSON.stringify(user));
     }
     public getUser = () => JSON.parse(<string>sessionStorage.getItem(USER_KEY));
   }
