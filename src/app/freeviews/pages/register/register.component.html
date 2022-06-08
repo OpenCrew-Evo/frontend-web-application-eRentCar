@@ -120,6 +120,18 @@
           <mat-error *ngIf="personalInformationForm.get('cellphoneNumber')?.hasError('pattern')">Invalid cellphone number</mat-error>
         </div>
       </mat-form-field>
+      <mat-form-field class="mb-1" appearance="fill">
+        <mat-label>Image profile</mat-label>
+        <input
+          matInput
+          #inputPathImageProfile
+          formControlName="pathImageProfile"
+        >
+        <div *ngIf="personalInformationForm.get('pathImageProfile')?.errors && personalInformationForm.get('pathImageProfile')?.dirty">
+          <mat-error *ngIf="personalInformationForm.get('pathImageProfile')?.hasError('required')">Required</mat-error>
+          <mat-error *ngIf="personalInformationForm.get('pathImageProfile')?.hasError('pattern')">Invalid image profile</mat-error>
+        </div>
+      </mat-form-field>
       <div class="d-flex">
         <span class="spacer"></span>
         <a mat-raised-button color="warn" href="">Cancel</a>
