@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
+  clientId!: string | null;
+
   constructor(private router: Router,
               private formBuilder: FormBuilder,
               private clientService: ClientService,
@@ -56,6 +58,11 @@ export class LoginComponent implements OnInit {
           this.isLoginFailed = true;
         }
       );
+
+      this.clientId = localStorage.getItem('clientId');
+      this.clientService.getById(Number(this.clientId) - 4).subscribe((response: any) => {
+        this.tokenStorageService.saveClientInfo(response);
+      })
     }
   }
 }
