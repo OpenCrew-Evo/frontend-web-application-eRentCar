@@ -1,3 +1,40 @@
 <mat-card>
-
+<h2>Vehículos rentados</h2>
 </mat-card>
+<div class="container-rents">
+  <div class="card-car" *ngFor="let rent of rents;index as i">
+    <div class="container-img">
+      <img src="{{rent.car.imagePath}}">
+    </div>
+    <div class="information">
+      <div class="info-car">
+        <h2>{{rent.car.carModel.carBrand.name+" "+rent.car.carModel.name}}</h2>
+        <div class="container-aux">
+          <mat-icon class="feature-icon">speed</mat-icon>
+          <h3 class="title-feature">Kilometraje:</h3>
+          <h3 class="feature">{{rent.car.mileage+"km"}}</h3>
+        </div>
+        <div class="container-aux">
+          <mat-icon class="feature-icon">event</mat-icon>
+          <h3 class="title-feature">Tipo:</h3>
+          <h3 class="feature" *ngIf="rent.car.manual==true">Manual</h3>
+          <h3 class="feature" *ngIf="rent.car.manual==false">Mecánico</h3>
+        </div>
+        <div class="container-aux">
+          <mat-icon class="feature-icon">settings</mat-icon>
+          <h3 class="title-feature">Año:</h3>
+          <h3 class="feature">{{rent.car.year}}</h3>
+        </div>
+        <div class="container-aux">
+          <mat-icon class="feature-icon">payments</mat-icon>
+          <h3 class="title-feature">Valor:</h3>
+          <h3 class="feature">{{rent.car.carValueInDollars+"$"}}</h3>
+        </div>
+      </div>
+      <div class="price">
+        <img class="logo" src="{{rent.car.carModel.carBrand.imagePath}}">
+        <h3>Precio de renta: {{rent.amount}}</h3>
+      </div>
+    </div>
+  </div>
+</div>

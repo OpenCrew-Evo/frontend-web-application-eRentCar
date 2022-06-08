@@ -21,6 +21,7 @@ const CLIENT_ID = 'clientId'
       window.sessionStorage.removeItem(USER_KEY);
       window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
       window.localStorage.setItem(CLIENT_ID, JSON.stringify(user.id));
+      console.log(user)
     }
     public getUser = () => JSON.parse(<string>sessionStorage.getItem(USER_KEY));
   }

@@ -37,6 +37,7 @@ export class MyProfileComponent implements OnInit {
               public editProfile: MatDialog) {
     this.clientUsers = {} as Client;
     this.clientId = localStorage.getItem('clientId');
+
   }
 
   ngOnInit(): void {

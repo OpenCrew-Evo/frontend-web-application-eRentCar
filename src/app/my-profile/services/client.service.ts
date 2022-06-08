@@ -43,8 +43,8 @@ export class ClientService {
       );
   }
 
-  getById(id: any): Observable<Client> {
-    return this.http.get<Client>(`${this.basePath}/${id}`, this.httpOptions)
+  getById(id: any): Observable<any> {/*Client*/
+    return this.http.get<any>(`${this.basePath}/${id}`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
