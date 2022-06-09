@@ -1,0 +1,57 @@
+<button mat-icon-button  mat-dialog-close class="close">
+  <mat-icon class="feature-icon">close</mat-icon>
+</button>
+<h1 mat-dialog-title>Agregar</h1>
+<mat-dialog-content class="dialog">
+  <div class="body-dialog">
+    <div class="left">
+      <h3 class="title-dialog">Adress:</h3>
+      <input [(ngModel)]="this.address" class="input" maxlength="50">
+      <h3 class="title-dialog">Tipo:</h3>
+      <select [(ngModel)]="this.type" class="select">
+        <option [value]="true" >Manual</option>
+        <option [value]="false" >Mecánico</option>
+      </select>
+
+      <h3 class="title-dialog">Car Value ($):</h3>
+      <input [(ngModel)]="this.carValueInDollars" class="input" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57)||event.charCode==46)"min="1">
+      <h3 class="title-dialog">Rent amount day ($):</h3>
+      <input [(ngModel)]="this.rentAmountDay" class="input" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57)||event.charCode==46)"min="1">
+
+      <h3 class="title-dialog">Categoria:</h3>
+      <select [(ngModel)]="category" class="select">
+        <option [value]="category" *ngFor="let category of categories">{{category}}</option>
+      </select>
+      <h3 class="title-dialog">Condición mecánica:</h3>
+      <select [(ngModel)]="mechanicCondition" class="select">
+        <option [value]="condition" *ngFor="let condition of conditions">{{condition}}</option>
+      </select>
+    </div>
+    <div class="right">
+      <h3 class="title-dialog">Seatings:</h3>
+      <input [(ngModel)]="this.seating" class="input" maxlength="2" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57))">
+
+      <h3 class="title-dialog">Mileage (Km):</h3>
+      <input [(ngModel)]="this.mileage" class="input" maxlength="10" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57))">
+      <h3 class="title-dialog">Year:</h3>
+      <input [(ngModel)]="this.year" class="input" maxlength="4" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57))">
+      <h3 class="title-dialog">Marcas:</h3>
+      <select [(ngModel)]="this.brandId" class="select" (change)="change()">
+        <option [value]="brand.id" *ngFor="let brand of brands" (click)="change()">{{brand.name}}</option>
+      </select>
+      <h3 class="title-dialog">Modelos:</h3>
+      <select [(ngModel)]="this.modelId" class="select">
+        <option [value]="model.id" *ngFor="let model of models" (click)="change()">{{model.name}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="body-2">
+    <h3 class="title-dialog">Imagen:</h3>
+    <input [(ngModel)]="this.imagePath" class="input">
+    <h3 class="title-dialog">Descripción:</h3>
+    <textarea [(ngModel)]="this.extraInformation" class="text-area"></textarea>
+    <div class="button-container">
+      <button mat-dialog-close (click)="addClick()">Agregar</button>
+    </div>
+  </div>
+</mat-dialog-content>

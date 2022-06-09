@@ -1,17 +1,48 @@
-<div class="container">
+
   <div class="header">
     <h1>My cars</h1>
     <button
       mat-raised-button
       class="accent"
-      (click)="openEditDialogCar()"
+      (click)="openAddCarDialog()"
     >New car</button>
   </div>
   <mat-divider></mat-divider>
-  <app-card-my-car
+  <!--<app-card-my-car
     *ngFor="let car of clientCars"
     [car]="car"
     [clientId]="clientId"
   >
-  </app-card-my-car>
-</div>
+  </app-card-my-car>-->
+  <div class="container-my-cars">
+    <div class="card-car" *ngFor="let car of cars;index as i">
+      <div class="card-image">
+        <img class="car-image" src="{{car.imagePath}}">
+        <img class="brand" src="{{car.carModel.carBrand.imagePath}}">
+        <div class="icons">
+          <mat-icon class="feature-icon">settings</mat-icon>
+          <mat-icon class="feature-icon">delete</mat-icon>
+        </div>
+      </div>
+      <div class="card-info">
+        <h3>{{car.carModel.carBrand.name+" "+car.carModel.name}}</h3>
+        <div class="feature">
+          <h5 class="title-feature">Kilometraje:</h5>
+          <h5 class="feature">{{car.mileage+"km"}}</h5>
+        </div>
+        <div class="feature">
+          <h5 class="title-feature">Valor:</h5>
+          <h5 class="feature">{{car.carValueInDollars+"$"}}</h5>
+        </div>
+        <div class="feature">
+          <h5 class="title-feature">Precio de alquilar:</h5>
+          <h5 class="feature">{{car.rentAmountDay}}</h5>
+        </div>
+        <div class="feature">
+          <h5 class="title-feature">Asientos:</h5>
+          <h5 class="feature">{{car.seating}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+

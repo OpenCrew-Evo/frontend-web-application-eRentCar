@@ -33,8 +33,6 @@ export class MyRentalsComponent implements OnInit {
     this.clientId=aux.toString()
     this.clientsService.getById(this.clientId).subscribe(response=>{
       this.rents=response.rents
-      console.log(this.rents)
-
     })
   }
   ngOnInit(): void {

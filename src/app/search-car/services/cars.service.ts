@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {Car} from "../model/car";
+import {newCar} from "../model/new-car";
 import {catchError, retry} from "rxjs/operators";
 
 @Injectable({
@@ -56,8 +57,8 @@ export class CarsService {
       );
   }
 
-  create(clientId: any, carModelId: any, item: any): Observable<Car> {
-    return this.http.post<Car>(`${ this.basePath }/client/${ clientId }/car-model/${ carModelId }`, JSON.stringify(item), this.httpOptions)
+  create(clientId: any, carModelId: any, item: any): Observable<newCar> {
+    return this.http.post<newCar>(`${ this.basePath }?clientId=${ clientId }&carModelId=${ carModelId }`, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

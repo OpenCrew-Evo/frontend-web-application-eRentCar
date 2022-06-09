@@ -1,0 +1,87 @@
+.close{
+  float: right;
+  top:-24px;
+  right:-24px;
+  font-size: 16px;
+}
+.close mat-icon{
+  color: #aa1f1f;
+}
+.dialog{
+  width: 400px;
+}
+.title{
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 5px;
+}
+.body-dialog{
+  width: 94%;
+  margin-left: 3%;
+  display: flex;
+}
+.left{
+  width: 50%;
+}
+.right{
+  width: 50%;
+}
+.title-dialog{
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: black;
+}
+.input{
+  width: 90%;
+  padding: 2px;
+  outline: none;
+  border: solid 1px #3b5998;
+  border-radius: 15px;
+}
+.select{
+  border: solid 1px #3b5998;
+}
+.body-2{
+  width: 94%;
+  margin-left: 3%;
+}
+.text-area{
+  width: 90%;
+  height: 150px;
+  resize: none;
+  border: solid 1px #3b5998;
+  outline: none;
+}
+::-webkit-scrollbar{
+  width: 8px; /*para el vertical*/
+  height: 8px;/*para el horizontal*/
+  background-color: white;
+}
+::-webkit-scrollbar-corner {
+  background-color: #1976D2;
+}
+::-webkit-scrollbar-track{
+  border-radius: 8px;
+  background-color: rgba(132, 137, 147, 0.4);
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 8px;
+  background-color: #1976D2;
+}
+.button-container{
+  width: 94%;
+  margin-left: 3%;
+  text-align: center;
+  margin-top: 5px;
+}
+.button-container button{
+  border: none;
+  border-radius: 5px;
+  background: #24C6DC;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #514A9D, #24C6DC);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #514A9D, #24C6DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+,*/
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+}
