@@ -13,7 +13,7 @@ import {ClientService} from "../../../my-profile/services/client.service";
 })
 export class MyFavouritesComponent implements OnInit {
   clientId!: string | null;
-  favouritesData: MyFavourites[];
+  favouritesData: any //: MyFavourites[];
   carsData: Car[];
 
   constructor(
@@ -31,8 +31,8 @@ export class MyFavouritesComponent implements OnInit {
   }
 
   retrieveCars() {
-    this.favouritesData.map(favourite => {
-      this.carService.getById(favourite.carId).subscribe((response: any) => {
+    this.favouritesData.map((favourite: any) => {
+      this.carService.getById(favourite.car.id).subscribe((response: any) => {
         this.carsData.push(response)
       });
     });
@@ -43,5 +43,13 @@ export class MyFavouritesComponent implements OnInit {
       this.favouritesData = response;
       this.retrieveCars();
     });*/
+
+    let value = localStorage.getItem('clientInfo');
+    let client = typeof value === "string" ? JSON.parse(value) : "";
+
+    this.favouritesData = client.favourites
+    console.log(this.favouritesData)
+    this.retrieveCars();
+
   }
 }
