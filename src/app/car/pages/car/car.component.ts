@@ -22,11 +22,13 @@ export class CarComponent implements OnInit {
   days: number = 1;
   isFavourite: boolean;
 
-  /*isFavourite = false;
+  /*isFavourite = false;*/
   favourite: MyFavourites = {
+    id: 0,
     clientId: 0,
-    carId: 0
-  };*/
+    carId: 0,
+    localStorageIndex: -1
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -69,12 +71,20 @@ export class CarComponent implements OnInit {
   }
 
   getFavourites() {
-    /*this.favouriteService.getByCar(this.carId, this.clientId).subscribe((response: any) => {
-      if(response.length > 0){
+    let value = localStorage.getItem('clientInfo');
+    let client = typeof value === "string" ? JSON.parse(value) : "";
+
+    for(let i = 0; i < client.favourites.length; i++){
+      if(client.favourites[i].car.id == this.carId){
         this.isFavourite = true;
-        this.favourite = response[0];
+        this.favourite = {
+          clientId: client.clientId,
+          carId: client.favourites[i].car.id,
+          id: client.favourites[i].id,
+          localStorageIndex: i
+        };
       }
-    });*/
+    }
   }
 
   getPrice(): number {
@@ -95,30 +105,55 @@ export class CarComponent implements OnInit {
     });
   }
 
-  /*addFavourite() {
-    this.favourite.carId = this.carId;
-    this.favourite.clientId = this.clientId;
-    this.favourite.id = uuid();
+  addFavourite() {
+    this.favourite.carId = Number(this.carId);
+    this.favourite.clientId = Number(this.clientId);
 
-    this.favouriteService.create(this.favourite).subscribe((response: any) => {
+    const newFav = {clientId:Number(this.clientId), carId:Number(this.carId)}
+
+    this.favouriteService.create(Number(this.clientId)-4, Number(this.carId), newFav).subscribe((response: any) => {
       this.isFavourite = true;
       this.favourite = response;
+
+      // Agregar el item al localStorage
+      let value = localStorage.getItem('clientInfo');
+      let client = typeof value === "string" ? JSON.parse(value) : "";
+
+      client.favourites.push({clientId:Number(this.clientId)-4, carId: this.carId});
+      console.log(client)
+
+      localStorage.setItem("clientInfo", JSON.stringify(client));
     })
   }
 
   deleteFavourite(id: string) {
     this.favouriteService.delete(id).subscribe((response: any) => {
       this.isFavourite = false;
+
+      // Eliminar el item del localStorage
+      let value = localStorage.getItem('clientInfo');
+      let client = typeof value === "string" ? JSON.parse(value) : "";
+      let newFav = [];
+
+      for(let i = 0; i < client.favourites.length; i++) {
+        if (client.favourites[i].car.id != this.carId)
+          newFav.push(client.favourites[i])
+      }
+      client.favourites = newFav;
+      console.log(client)
+
+      localStorage.setItem("clientInfo", JSON.stringify(client));
+
     })
   }
 
-  actionFavourite(id: string) {
+  actionFavourite(id: number) {
     if (this.isFavourite) {
-      this.deleteFavourite(id);
+      this.deleteFavourite(id.toString());
     }
     else {
       this.addFavourite();
     }
   }
-  */
+
 }

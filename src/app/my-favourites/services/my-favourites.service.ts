@@ -63,7 +63,7 @@ export class MyFavouritesService {
   // Create Favourite
   create(clientId: any, carId: any, item: any): Observable<MyFavourites> {
     return this.http.post<MyFavourites>(
-      `${ this.basePath }/client/${ clientId }/car/${ carId }`, JSON.stringify(item), this.httpOptions)
+      `${ this.basePath }?clientId=${ clientId }&carId=${ carId }`, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));

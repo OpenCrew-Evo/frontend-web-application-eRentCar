@@ -5,6 +5,7 @@
       id="favorite-button"
       mat-fab
       [color]="isFavourite ? 'warn' : 'gray'"
+      (click)="actionFavourite(favourite.id)"
       aria-label=favorite
     >
       <mat-icon>favorite_border</mat-icon>
