@@ -119,9 +119,7 @@ export class CarComponent implements OnInit {
       let value = localStorage.getItem('clientInfo');
       let client = typeof value === "string" ? JSON.parse(value) : "";
 
-      client.favourites.push({clientId:Number(this.clientId)-4, carId: this.carId});
-      console.log(client)
-
+      client.favourites.push(this.favourite);
       localStorage.setItem("clientInfo", JSON.stringify(client));
     })
   }
@@ -139,9 +137,8 @@ export class CarComponent implements OnInit {
         if (client.favourites[i].car.id != this.carId)
           newFav.push(client.favourites[i])
       }
-      client.favourites = newFav;
-      console.log(client)
 
+      client.favourites = newFav;
       localStorage.setItem("clientInfo", JSON.stringify(client));
 
     })
