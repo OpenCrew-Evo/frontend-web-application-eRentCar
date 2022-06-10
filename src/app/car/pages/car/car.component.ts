@@ -53,20 +53,6 @@ export class CarComponent implements OnInit {
   getCar(): void {
     this.carService.getById(this.carId).subscribe((response: any) => {
       this.carData = response;
-      this.getModelName(response.carModelId);
-    });
-  }
-
-  getModelName(carModelId: number): any {
-    this.carModelsService.getById(carModelId).subscribe((response: any) => {
-      this.carData.model = response.name;
-      this.getBrandName(response.carBrandId);
-    });
-  }
-
-  getBrandName(carBrandId: number): any {
-    this.carBrandsService.getById(carBrandId).subscribe((response: any) => {
-      this.carData.brand = response.name;
     });
   }
 

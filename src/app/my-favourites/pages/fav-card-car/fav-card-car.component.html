@@ -5,7 +5,7 @@
         <mat-card>
           <img src="{{ car.imagePath }}" alt="car image">
           <div class="car-information">
-            <mat-card-title>{{ car.brand }} {{ car.model }}</mat-card-title>
+            <mat-card-title>{{ car.carModel.carBrand.name }} {{ car.carModel.name }}</mat-card-title>
             <p>Seating: {{ car.seating }}</p>
             <p>Transmission: {{ car.manual ? "Manual" : "Automatic" }}</p>
             <p>Mileage: {{ car.mileage }}</p>

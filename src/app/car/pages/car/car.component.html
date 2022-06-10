@@ -15,7 +15,7 @@
   <div class="container-data">
     <img *ngIf="carData.imagePath != null" src="{{ carData.imagePath }}" alt="car image">
     <div class="car-information">
-      <mat-card-title>{{ carData.brand }} {{ carData.model }}</mat-card-title>
+      <mat-card-title>{{ carData.carModel.carBrand.name }} {{ carData.carModel.name }}</mat-card-title>
       <span>Seating: {{ carData.seating }}</span>
       <span>Transmission: {{ carData.manual ? "Manual" : "Automatic" }}</span>
       <span>Mileage: {{ carData.mileage }}</span>

@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Rent Car</h1>
 <div mat-dialog-content>
-  <h2>{{ data.car.brand + " " + data.car.model }}</h2>
+  <h2>{{ data.car.carModel.carBrand.name + " " + data.car.carModel.name }}</h2>
   <img src="{{ data.car.imagePath }}" alt="car image">
 
   <mat-form-field class="example-form-field" appearance="fill">

@@ -1,7 +1,7 @@
 <mat-card>
   <img src="{{ userCar.imagePath }}" alt="car image" [routerLink]="moreInformation" style="cursor: pointer">
   <div class="car-information">
-    <mat-card-title>{{ userCar.brand }} {{ userCar.model }}</mat-card-title>
+    <mat-card-title>{{ userCar.carModel.carBrand.name }} {{ userCar.carModel.name }}</mat-card-title>
     <span>Seating: {{ userCar.seating }}</span>
     <span>Transmission: {{ userCar.manual ? "Manual" : "Automatic" }}</span>
     <span>Mileage: {{ userCar.mileage }}</span>

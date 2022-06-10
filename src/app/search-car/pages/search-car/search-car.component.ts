@@ -66,23 +66,6 @@ export class SearchCarComponent implements OnInit {
   getAllCars() {
     this.carsService.getAll().subscribe((response: any) => {
       this.carsData = response.content;
-
-      for (let i = 0; i < this.carsData.length; i++) {
-        this.getModelName(i, this.carsData[i].carModelId);
-      }
-    });
-  }
-
-  getModelName(index: number, carModelId: number): any {
-    this.carModelsService.getById(carModelId).subscribe((response: any) => {
-      this.carsData[index].model = response.name;
-      this.getBrandName(index, response.carBrandId);
-    });
-  }
-
-  getBrandName(index: number, carBrandId: number): any {
-    this.carBrandsService.getById(carBrandId).subscribe((response: any) => {
-      this.carsData[index].brand = response.name;
     });
   }
 }

@@ -1,9 +1,7 @@
 export interface Car {
   id: number;
   address: string;
-  brand: string;
   year: number;
-  model: string;
   mileage: number;
   seating: number;
   manual: boolean;
@@ -14,6 +12,6 @@ export interface Car {
   imagePath: string;
   category: string;
   mechanicConditions: string;
-  clientId: number | null;
-  carModelId: number;
+  carModel: any;
+  clientId: number;
 }
