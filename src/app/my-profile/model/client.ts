@@ -9,5 +9,8 @@ export interface Client {
   rate: number;
   imagePath: string;
   planId: number;
+  cars: any[];
+  favourites: any[];
+  rents: any[];
   userId: number;
 }

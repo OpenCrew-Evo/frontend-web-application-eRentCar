@@ -48,6 +48,10 @@ export class LoginComponent implements OnInit {
         data => {
           this.tokenStorageService.saveToken(data.resource.token);
           this.tokenStorageService.saveUser(data.resource);
+          this.clientId = localStorage.getItem('clientId');
+          this.clientService.getById(Number(this.clientId) - 4).subscribe((response: any) => {
+            this.tokenStorageService.saveClientInfo(response);
+          })
           this.isLoginFailed = false;
           this.isLoggedIn = true;
           this.roles = this.tokenStorageService.getUser().roles;
@@ -59,10 +63,7 @@ export class LoginComponent implements OnInit {
         }
       );
 
-      this.clientId = localStorage.getItem('clientId');
-      this.clientService.getById(Number(this.clientId) - 4).subscribe((response: any) => {
-        this.tokenStorageService.saveClientInfo(response);
-      })
+
     }
   }
 }
