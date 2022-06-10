@@ -60,6 +60,7 @@ import { EditProfileComponent } from './my-profile/pages/edit-profile/edit-profi
 import {authInterceptorProviders} from "./api/auth-interceptor.service";
 import { LogoutComponent } from './api/logout/logout.component';
 import { RegisterApiComponent } from './api/register/register-api.component';
+import { AddCarDialogComponent } from './my-car/pages/add-car-dialog/add-car-dialog.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import { RegisterApiComponent } from './api/register/register-api.component';
     EditDateDialogComponent,
     EditProfileComponent,
     LogoutComponent,
-    RegisterApiComponent
+    RegisterApiComponent,
+    AddCarDialogComponent
   ],
   imports: [
     BrowserModule,

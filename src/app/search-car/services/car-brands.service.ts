@@ -32,16 +32,16 @@ export class CarBrandsService {
     return throwError("Something happened with request, please try again later");
   }
 
-  getAll(): Observable<CarBrand> {
-    return this.http.get<CarBrand>(this.basePath, this.httpOptions)
+  getAll(): Observable<any> {
+    return this.http.get<any>(this.basePath, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
       );
   }
 
-  getById(id: any): Observable<CarBrand> {
-    return this.http.get<CarBrand>(`${ this.basePath}/${ id }`, this.httpOptions)
+  getById(id: number): Observable<any> {
+    return this.http.get<any>(`${ this.basePath}/${ id }`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

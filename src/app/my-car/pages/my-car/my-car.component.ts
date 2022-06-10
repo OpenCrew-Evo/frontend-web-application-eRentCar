@@ -7,6 +7,7 @@ import {EditCarDialogComponent} from "../edit-car-dialog/edit-car-dialog.compone
 import {CarsService} from "../../../search-car/services/cars.service";
 import {CarModelsService} from "../../../search-car/services/car-models.service";
 import {CarBrandsService} from "../../../search-car/services/car-brands.service";
+import {AddCarDialogComponent} from "../add-car-dialog/add-car-dialog.component";
 
 @Component({
   selector: 'app-my-car',
@@ -14,22 +15,33 @@ import {CarBrandsService} from "../../../search-car/services/car-brands.service"
   styleUrls: ['./my-car.component.css']
 })
 export class MyCarComponent implements OnInit {
-  clientId!: number;
+  clientId !: string | null;
   clientCars!: Car[];
+  cars:any
+  clientIdAux:number
 
-  constructor(private clientService: ClientService,
+  constructor(private clientsService:ClientService,
               private carsService: CarsService,
               private carModelsService: CarModelsService,
               private carBrandsService: CarBrandsService,
-              private editCarDialog: MatDialog) {
-    this.clientId = parseInt(<string>localStorage.getItem('clientId'));
+              private editCarDialog: MatDialog,public dialog:MatDialog) {
+    this.clientId = localStorage.getItem('clientId');
+    this.cars=[]
+    this.clientIdAux=Number(this.clientId)-4
   }
-
+  getCars(){
+    this.clientId=this.clientIdAux.toString()
+    this.clientsService.getById(this.clientId).subscribe(response=>{
+      this.cars=response.cars
+      console.log(this.cars)
+      console.log("aaaa")
+    })
+  }
   ngOnInit(): void {
     this.getCars();
   }
 
-  getCars(): void {
+  /*getCars(): void {
     this.carsService.getCarsByClientId(this.clientId).subscribe((response: any) => {
       this.clientCars = response.content;
 
@@ -50,8 +62,13 @@ export class MyCarComponent implements OnInit {
     this.carBrandsService.getById(carBrandId).subscribe((response: any) => {
       this.clientCars[index].brand = response.name;
     });
+  }*/
+  openAddCarDialog(){
+    const dialogRef=this.dialog.open(AddCarDialogComponent,{data:{client:this.clientId}})
+    dialogRef.componentInstance.submitClicked.subscribe(result=>{
+      this.getCars()
+    })
   }
-
   openEditDialogCar(): void {
     /*const car: Car = {
       id: uuid(),
