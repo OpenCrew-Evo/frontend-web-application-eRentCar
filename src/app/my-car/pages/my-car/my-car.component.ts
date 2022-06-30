@@ -69,7 +69,22 @@ export class MyCarComponent implements OnInit {
       this.getCars()
     })
   }
-  openEditDialogCar(): void {
+  openEditDialogCar(id: number) {
+    console.log(this.cars[id])
+    const dialogRef = this.editCarDialog.open(EditCarDialogComponent, {
+      width: "400px",
+      data: {
+        //car: car,
+        clientId: this.clientId,
+        car: this.cars[id]
+      }
+    });
+
+    dialogRef.afterClosed().subscribe((response: any) => {
+      if (response !== undefined) {
+        this.clientCars = this.clientCars.concat(response);
+      }
+    })
     /*const car: Car = {
       id: uuid(),
       address: "",
@@ -87,20 +102,7 @@ export class MyCarComponent implements OnInit {
       clientId: this.clientId
     }*/
 
-    const dialogRef = this.editCarDialog.open(EditCarDialogComponent, {
-      width: "400px",
-      data: {
-        //car: car,
-        clientId: this.clientId,
-        edit: false
-      }
-    });
 
-    dialogRef.afterClosed().subscribe((response: any) => {
-      if (response !== undefined) {
-        this.clientCars = this.clientCars.concat(response);
-      }
-    })
   }
 
 

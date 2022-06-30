@@ -1,18 +1,105 @@
 {
   "clients": [
     {
-      "id": "1",
-      "names": "Sofia Diana",
-      "lastNames": "Bazan Dulanto",
-      "address": "1011 C Alfredo Salazar San Isidro",
-      "cellphoneNumber": "999123456",
-      "averageResponsibility": 90,
-      "responseTime": 5,
-      "rate": 4.6,
-      "imagePath": "sofia.jpg",
-      "planId": "",
-      "email": "sofiabaz@gmail.com",
-      "password": "sofiabaz"
+      "id": 1,
+      "names": "Sergio",
+      "lastNames": "Guanilo",
+      "address": "San Miguel 123",
+      "cellphoneNumber": 987654321,
+      "averageResponsibility": -1,
+      "responseTime": -1,
+      "rate": -1,
+      "imagePath": "",
+      "planId": null,
+      "cars": [
+        {
+          "id": 1,
+          "address": "La Marina 456",
+          "year": 2019,
+          "mileage": 42,
+          "seating": 2,
+          "manual": false,
+          "carValueInDollars": 212760,
+          "extraInformation": "Auto de lujo del 2019",
+          "rate": 0,
+          "rentAmountDay": 562,
+          "imagePath": "https://img.remediosdigitales.com/de1542/lamborghini-huracan_evo-2019-1280-01/1366_2000.jpg",
+          "category": "LARGE",
+          "mechanicConditions": "EXCELLENT",
+          "carModel": {
+            "id": 1,
+            "name": "Huaracan Evo",
+            "imagePath": "https://www.diariomotor.com/imagenes/2019/01/lamborghini-huracan-evo-2019-0119-014.jpg",
+            "carBrand": {
+              "id": 1,
+              "name": "Lamborghini",
+              "imagePath": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Lamborghini_Gallardo_5.2_%2708_%289402936597%29.jpg"
+            }
+          },
+          "clientId": 1
+        },
+        {
+          "id": 2,
+          "address": "Av La Marina",
+          "year": 2022,
+          "mileage": 10,
+          "seating": 5,
+          "manual": true,
+          "carValueInDollars": 30000,
+          "extraInformation": "Auto del 2022",
+          "rate": 0,
+          "rentAmountDay": 89,
+          "imagePath": "https://www.motortrend.com/uploads/2022/02/2022_Toyota_Avalon_Touring_001.jpg",
+          "category": "PREMIUM",
+          "mechanicConditions": "EXCELLENT",
+          "carModel": {
+            "id": 3,
+            "name": "Avalon",
+            "imagePath": "https://www.toyota.com/imgix/content/dam/toyota/jellies/max/2022/avalon/limited/3554/1k6/2.png?fm=webp&bg=white&w=768&h=328&q=90",
+            "carBrand": {
+              "id": 2,
+              "name": "Toyota",
+              "imagePath": "http://www.toyocosta.com/blog/wp-content/uploads/2014/01/toyota-cars-logo-emblem.jpg"
+            }
+          },
+          "clientId": 1
+        }
+      ],
+      "favourites": [
+        {
+          "id": 9,
+          "clientId": 1,
+          "car": {
+            "id": 1,
+            "address": "La Marina 456",
+            "year": 2019,
+            "mileage": 42,
+            "seating": 2,
+            "manual": false,
+            "carValueInDollars": 212760,
+            "extraInformation": "Auto de lujo del 2019",
+            "rate": 0,
+            "rentAmountDay": 562,
+            "imagePath": "https://img.remediosdigitales.com/de1542/lamborghini-huracan_evo-2019-1280-01/1366_2000.jpg",
+            "category": "LARGE",
+            "mechanicConditions": "EXCELLENT",
+            "carModel": {
+              "id": 1,
+              "name": "Huaracan Evo",
+              "imagePath": "https://www.diariomotor.com/imagenes/2019/01/lamborghini-huracan-evo-2019-0119-014.jpg",
+              "carBrand": {
+                "id": 1,
+                "name": "Lamborghini",
+                "imagePath": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Lamborghini_Gallardo_5.2_%2708_%289402936597%29.jpg"
+              }
+            },
+            "clientId": 1
+          }
+        }
+      ],
+      "rents": [],
+      "reservations": [],
+      "userId": 5
     },
     {
       "id": "2",
@@ -104,68 +191,56 @@
   ],
   "cars": [
     {
-      "id": "1",
-      "address": "1011 C Alfredo Salazar San Isidro",
-      "brand": "Toyota",
-      "year": 2012,
-      "model": "Focus",
-      "mileage": 90000,
-      "seating": 4,
+      "id": 1,
+      "address": "La Marina 456",
+      "year": 2019,
+      "mileage": 42,
+      "seating": 3,
       "manual": false,
-      "carValueInDollars": 13000,
-      "extraInformation": "The car has leather seats and new tires",
-      "imagePath": "ford-focus.jpeg",
-      "rate": 4,
-      "rentAmountDay": 45,
+      "carValueInDollars": 212760,
+      "extraInformation": "Auto de lujo del 2019",
+      "rate": 0,
+      "rentAmountDay": 562,
+      "imagePath": "https://img.remediosdigitales.com/de1542/lamborghini-huracan_evo-2019-1280-01/1366_2000.jpg",
+      "category": "LARGE",
+      "mechanicCondition": "EXCELLENT",
+      "carModel": {
+        "id": 1,
+        "name": "Huaracan Evo",
+        "imagPath": "https://www.diariomotor.com/imagenes/2019/01/lamborghini-huracan-evo-2019-0119-014.jpg",
+        "carBrand": {
+          "id": 1,
+          "name": "Lamborghini",
+          "imagePath": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Lamborghini_Gallardo_5.2_%2708_%289402936597%29.jpg"
+        }
+      },
       "clientId": "1"
     },
     {
-      "id": "2",
-      "address": "Urb. Felipe Salgado # 573 Surco",
-      "brand": "Chevrolet",
-      "year": 2019,
-      "model": "Cruze",
-      "mileage": 12000,
-      "seating": 5,
-      "manual": false,
-      "carValueInDollars": 11000,
-      "extraInformation": "The paint on the car is new.",
-      "imagePath": "chevrolet-cruze.jpg",
-      "rate": 5,
-      "rentAmountDay": 60,
-      "clientId": "2"
-    },
-    {
-      "id": "3",
-      "address": "Av. Sofía Niño # 3 Piso 51 San Isidro",
-      "brand": "Toyota",
-      "year": 2021,
-      "model": "Corolla",
-      "mileage": 7000,
+      "id": 2,
+      "address": "Av La Marina",
+      "year": 2022,
+      "mileage": 10,
       "seating": 5,
       "manual": true,
-      "carValueInDollars": 18000,
-      "extraInformation": "The car is new",
-      "imagePath": "toyota-corolla.jfif",
-      "rate": 5,
-      "rentAmountDay": 80,
-      "clientId": "3"
-    },
-    {
-      "id": "4",
-      "address": "Av. Sofía Niño # 3 Piso 51 San Isidro",
-      "brand": "Nissan",
-      "year": 2019,
-      "model": "Versa",
-      "mileage": 15000,
-      "seating": 5,
-      "manual": true,
-      "carValueInDollars": 20000,
-      "extraInformation": "The paint is new",
-      "imagePath": "nissan-versa.jpg",
-      "rate": 4,
-      "rentAmountDay": 55,
-      "clientId": "2"
+      "carValueInDollars": 30000,
+      "extraInformation": "Auto del 2022",
+      "rate": 0,
+      "rentAmountDay": 89,
+      "imagePath": "https://www.motortrend.com/uploads/2022/02/2022_Toyota_Avalon_Touring_001.jpg",
+      "category": "PREMIUM",
+      "mechanicConditions": "EXCELLENT",
+      "carModel": {
+        "id": 3,
+        "name": "Avalon",
+        "imagePath": "https://www.toyota.com/imgix/content/dam/toyota/jellies/max/2022/avalon/limited/3554/1k6/2.png?fm=webp&bg=white&w=768&h=328&q=90",
+        "carBrand": {
+          "id": 2,
+          "name": "Toyota",
+          "imagePath": "http://www.toyocosta.com/blog/wp-content/uploads/2014/01/toyota-cars-logo-emblem.jpg"
+        }
+      },
+      "clientId": 1
     }
   ],
   "my-messages": [

@@ -20,7 +20,9 @@
         <img class="car-image" src="{{car.imagePath}}">
         <img class="brand" src="{{car.carModel.carBrand.imagePath}}">
         <div class="icons">
-          <mat-icon class="feature-icon">settings</mat-icon>
+          <mat-icon class="feature-icon"
+                    (click)="openEditDialogCar(i.valueOf())"
+           >settings</mat-icon>
           <mat-icon class="feature-icon">delete</mat-icon>
         </div>
       </div>
