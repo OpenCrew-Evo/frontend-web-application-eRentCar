@@ -10,7 +10,7 @@ import {Car} from "../../search-car/model/car";
   providedIn: 'root'
 })
 export class ClientService {
-  basePath = "http://localhost:3000/clients";
+  basePath = "https://erentcar-evo.herokuapp.com/api/v1/clients";
 
   httpOptions = {
     headers: new HttpHeaders({

@@ -128,7 +128,7 @@ export class EditCarDialogComponent implements OnInit {
       clientId: this.clientId
     }
     console.log(data)
-    this.carService.update(this.carId,data).subscribe(response=>{
+    this.carService.update(this.carId,this.model.id,data).subscribe(response=>{
       console.log(response)
     })
     this.submitClicked.emit("a");

@@ -9,7 +9,7 @@ import {catchError, retry} from "rxjs/operators";
   providedIn: 'root'
 })
 export class CarsService {
-  basePath = "http://localhost:3000/cars";
+  basePath = "https://erentcar-evo.herokuapp.com/api/v1/cars";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -65,8 +65,8 @@ export class CarsService {
       );
   }
 
-  update(id: any, item: any): Observable<Car> {
-    return this.http.put<Car>(`${ this.basePath }/${ id }`, JSON.stringify(item), this.httpOptions)
+  update(id: any,carModelId: any, item: any): Observable<Car> {
+    return this.http.put<Car>(`${ this.basePath }/${ id }?carModelId=${ carModelId }`, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
